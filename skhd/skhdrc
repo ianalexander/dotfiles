@@ -38,6 +38,9 @@ shift - end : aerospace move right
 ### Resize
 fn - 0x1B : aerospace resize smart -50
 fn - 0x18 : aerospace resize smart +50
+fn + shift - 0x1B : aerospace resize smart-opposite -50
+fn + shift - 0x18 : aerospace resize smart-opposite +50
+
 
 ### Workspace
 fn - 1 : aerospace workspace 1
