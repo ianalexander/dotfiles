@@ -1,0 +1,73 @@
+# .skhdrc
+#
+# This configuration uses the MacOS "function" key (fn) as the primary modifer
+# for the AeroSpace window manager.
+#
+# We do this because I want to use the arrow keys. Using alt, the AeroSpace
+# default modifier combined with arrows overlaps the commands I use to navigate
+# text. For example: alt + shift - left in VSCode jumps one word to the left.
+#
+# As of now, AeroSpace does not support the "fn" modifier:
+# https://github.com/nikitabobko/AeroSpace/issues/1012
+
+### Special
+fn - space : aerospace fullscreen
+fn + cmd - e : aerospace enable toggle
+
+### Layout
+# 2C = slash, 2B = comma
+fn - 0x2C : aerospace layout tiles horizontal vertical
+fn - 0x2B : aerospace layout accordion horizontal vertical
+
+### Focus
+# fn - h : aerospace focus left
+# fn - j : aerospace focus down
+# fn - k : aerospace focus up
+# fn - l : aerospace focus right
+home : aerospace focus left
+pagedown : aerospace focus down
+pageup : aerospace focus up
+end : aerospace focus right
+
+### Move
+shift - home : aerospace move left
+shift - pagedown : aerospace move down
+shift - pageup : aerospace move up
+shift - end : aerospace move right
+
+### Resize
+fn - 0x1B : aerospace resize smart -50
+fn - 0x18 : aerospace resize smart +50
+
+### Workspace
+fn - 1 : aerospace workspace 1
+fn - 2 : aerospace workspace 2
+fn - 3 : aerospace workspace 3
+fn - 4 : aerospace workspace 4
+fn - tab : aerospace workspace-back-and-forth
+fn + shift - tab : aerospace move-workspace-to-monitor  --wrap-around next
+
+### Move to workspace
+fn + shift - 1 : aerospace move-node-to-workspace 1
+fn + shift - 2 : aerospace move-node-to-workspace 2
+fn + shift - 3 : aerospace move-node-to-workspace 3
+fn + shift - 4 : aerospace move-node-to-workspace 4
+
+### Service mode
+
+# Here, we use skhd modes to effectively replicate AeroSpace modes.
+:: service : aerospace mode service
+:: default : aerospace mode main
+fn + shift - 0x29 ; service
+service < fn + shift - 0x29 ; default
+
+### Service options
+service < escape : aerospace reload-config ; skhd -k "fn + shift - 0x29"
+service < r : aerospace flatten-workspace-tree ; skhd -k "fn + shift - 0x29"
+service < f : aerospace layout floating tiling ; skhd -k "fn + shift - 0x29"
+
+### Joining windows
+service < shift - home : aerospace join-with left ; skhd -k "fn + shift - 0x29"
+service < shift - pagedown : aerospace join-with down ; skhd -k "fn + shift - 0x29"
+service < shift - pageup : aerospace join-with up ; skhd -k "fn + shift - 0x29"
+service < shift - end : aerospace join-with right ; skhd -k "fn + shift - 0x29"
