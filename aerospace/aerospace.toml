@@ -97,3 +97,10 @@ automatically-unhide-macos-hidden-apps = false
     if.window-title-regex-substring = 'Extension.*Bitwarden'
     run = ['layout floating']
 
+# We want the main Notes window to float. However, if we open an individual
+# note, that one should be tiled like normal.
+[[on-window-detected]]
+    if.app-id = 'com.apple.Notes'
+    if.window-title-regex-substring = 'Notes'
+    run = ['layout floating']
+
