@@ -92,3 +92,8 @@ automatically-unhide-macos-hidden-apps = false
     if.app-id = 'com.apple.MobileSMS'
     run = ['layout floating']
 
+[[on-window-detected]]
+    if.app-id = 'org.mozilla.firefox'
+    if.window-title-regex-substring = 'Extension.*Bitwarden'
+    run = ['layout floating']
+
