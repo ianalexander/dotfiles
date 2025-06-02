@@ -92,6 +92,7 @@ automatically-unhide-macos-hidden-apps = false
     if.app-id = 'com.apple.MobileSMS'
     run = ['layout floating']
 
+# In firefox, the Bitwarden extension's popup should not be full screen
 [[on-window-detected]]
     if.app-id = 'org.mozilla.firefox'
     if.window-title-regex-substring = 'Extension.*Bitwarden'
